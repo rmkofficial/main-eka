@@ -5,8 +5,8 @@ import { Box } from '@mui/material';
 
 const Logo = () => {
     return (
-        <Box sx={{ flexGrow: 0, display: 'flex', justifyContent: 'center', margin: "0 2rem" }}>
-            <Image src={logo} alt="Logo" width={80} height={80} />
+        <Box sx={{ flexGrow: 0, display: 'flex', justifyContent: 'center', margin: '0 2rem' }}>
+            <Image src={logo} alt="Logo" width={80} height={80} priority />
         </Box>
     );
 };

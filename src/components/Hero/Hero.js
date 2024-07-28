@@ -9,10 +9,9 @@ const Hero = ({ topSpacing = '0', leftSpacing = '0' }) => {
             <Image
                 src={heroImage}
                 alt="Hero Image"
-                layout="fill"
-                objectFit="cover"
+                fill
+                style={{ objectFit: 'cover', zIndex: -1 }}
                 quality={100}
-                style={{ zIndex: -1 }}
             />
             <HeroContentWrapper>
                 <HeroTitle variant="h2" component="h1" gutterBottom topSpacing={topSpacing} leftSpacing={leftSpacing}>

@@ -10,16 +10,25 @@ const StyledMenuItem = styled(MenuItem)(({ theme }) => ({
     color: '#3F71A8',
     '&:hover': {
         color: '#fff',
-        backgroundColor: '#3F71A8',
+        '& .MuiListItemIcon-root': {
+            color: '#fff',
+        },
     },
     '& .MuiListItemIcon-root': {
         color: 'inherit',
     },
 }));
 
+const TransparentMenu = styled(Menu)(({ theme }) => ({
+    '& .MuiPaper-root': {
+        backgroundColor: 'rgba(0, 0, 0, 0.2)', 
+        backdropFilter: 'blur(5px)', 
+    },
+}));
+
 const UserMenu = ({ anchorEl, open, handleClose }) => {
     return (
-        <Menu
+        <TransparentMenu
             anchorEl={anchorEl}
             open={open}
             onClose={handleClose}
@@ -44,7 +53,7 @@ const UserMenu = ({ anchorEl, open, handleClose }) => {
                 </ListItemIcon>
                 <Typography variant="inherit">Giriş Yap</Typography>
             </StyledMenuItem>
-        </Menu>
+        </TransparentMenu>
     );
 };
 
