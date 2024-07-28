@@ -1,7 +1,11 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 import Navbar from '../components/Navbar/Navbar';
-import Hero from '../components/Hero/Hero';
-import { Container, Typography } from '@mui/material';
+
+
+const Hero = dynamic(() => import('../components/Hero/Hero'), {
+    ssr: false,
+});
 
 const Home = () => {
     return (
