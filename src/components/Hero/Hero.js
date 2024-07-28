@@ -12,6 +12,7 @@ const Hero = ({ topSpacing = '0', leftSpacing = '0' }) => {
                 fill
                 style={{ objectFit: 'cover', zIndex: -1 }}
                 quality={100}
+                priority
             />
             <HeroContentWrapper>
                 <HeroTitle variant="h2" component="h1" gutterBottom topSpacing={topSpacing} leftSpacing={leftSpacing}>
