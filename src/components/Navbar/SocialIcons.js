@@ -19,16 +19,16 @@ const StyledIconButton = styled(IconButton)(({ theme }) => ({
 const SocialIcons = () => {
     return (
         <Box sx={{ display: 'flex', gap: '0.5rem' }}>
-            <StyledIconButton>
+            <StyledIconButton aria-label="Instagram">
                 <InstagramIcon />
             </StyledIconButton>
-            <StyledIconButton>
+            <StyledIconButton aria-label="Twitter">
                 <TwitterIcon />
             </StyledIconButton>
-            <StyledIconButton>
+            <StyledIconButton aria-label="Facebook">
                 <FacebookIcon />
             </StyledIconButton>
-            <StyledIconButton>
+            <StyledIconButton aria-label="LinkedIn">
                 <LinkedInIcon />
             </StyledIconButton>
         </Box>

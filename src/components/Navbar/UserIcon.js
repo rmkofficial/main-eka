@@ -28,7 +28,7 @@ const UserIcon = () => {
 
     return (
         <div>
-            <StyledIconButton onClick={handleClick}>
+            <StyledIconButton onClick={handleClick} aria-label="Kullanıcı Menüsü">
                 <AccountCircleIcon />
             </StyledIconButton>
             <UserMenu anchorEl={anchorEl} open={open} handleClose={handleClose} />

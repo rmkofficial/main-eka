@@ -41,13 +41,13 @@ const UserMenu = ({ anchorEl, open, handleClose }) => {
                 horizontal: 'center',
             }}
         >
-            <StyledMenuItem onClick={handleClose}>
+            <StyledMenuItem onClick={handleClose} aria-label="Kayıt Ol">
                 <ListItemIcon>
                     <PersonAddIcon />
                 </ListItemIcon>
                 <Typography variant="inherit">Kayıt Ol</Typography>
             </StyledMenuItem>
-            <StyledMenuItem onClick={handleClose}>
+            <StyledMenuItem onClick={handleClose} aria-label="Giriş Yap">
                 <ListItemIcon>
                     <LoginIcon />
                 </ListItemIcon>
