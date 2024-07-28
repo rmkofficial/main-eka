@@ -4,18 +4,26 @@ import CloseIcon from '@mui/icons-material/Close';
 import Logo from '../Logo';
 import MobileMenuItem from './MobileMenuItem';
 import { styled } from '@mui/system';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 const StyledDrawer = styled(Drawer)(({ theme }) => ({
     '& .MuiDrawer-paper': {
         boxSizing: 'border-box',
         width: '100%',
-        backgroundColor: 'rgba(0, 0, 0, 0.9)', // Transparan arka plan
-        color: '#fff', // Yazı rengi beyaz
+        backgroundColor: 'rgba(0, 0, 0, 0.9)',
+        color: '#fff',
         padding: theme.spacing(2),
     },
 }));
 
 const MobileDrawer = ({ open, handleDrawerToggle }) => {
+    const menuItems = [
+        'Ana Sayfa',
+        'Hizmetler',
+        'Hakkımızda',
+        'İletişim'
+    ];
+
     return (
         <StyledDrawer
             variant="temporary"
@@ -26,17 +34,24 @@ const MobileDrawer = ({ open, handleDrawerToggle }) => {
                 keepMounted: true,
             }}
         >
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 2 }}>
                 <Logo />
                 <IconButton onClick={handleDrawerToggle} sx={{ color: '#fff' }}>
                     <CloseIcon />
                 </IconButton>
             </Box>
             <List>
-                <MobileMenuItem text="Ana Sayfa" onClick={handleDrawerToggle} />
-                <MobileMenuItem text="Hizmetler" onClick={handleDrawerToggle} />
-                <MobileMenuItem text="Hakkımızda" onClick={handleDrawerToggle} />
-                <MobileMenuItem text="İletişim" onClick={handleDrawerToggle} />
+                <TransitionGroup component={null}>
+                    {menuItems.map((item, index) => (
+                        <CSSTransition
+                            key={index}
+                            timeout={300}
+                            classNames="menu-item"
+                        >
+                            <MobileMenuItem text={item} onClick={handleDrawerToggle} delay={index * 100} />
+                        </CSSTransition>
+                    ))}
+                </TransitionGroup>
             </List>
         </StyledDrawer>
     );

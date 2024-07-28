@@ -20,7 +20,7 @@ export default function MyApp(props) {
     return (
         <React.Fragment>
             <Head>
-                <title>Eğitim Kariyer Akademsi</title>
+                <title>Eğitim Kariyer Akademisi</title>
                 <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
                 <link rel="icon" href="/favicon.png" type="image/png" />
             </Head>

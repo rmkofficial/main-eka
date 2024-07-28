@@ -1,9 +1,24 @@
 import React, { useState } from 'react';
-import { AppBar, Toolbar, IconButton } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import { AppBar, Toolbar, IconButton, Box } from '@mui/material';
 import Logo from '../Logo';
 import UserIcon from '../UserIcon';
 import MobileDrawer from './MobileDrawer';
+import { styled } from '@mui/system';
+import Image from 'next/image';
+import hamburgerIcon from '../../../../public/hamburger-icon.png';
+
+const StyledMenuIconButton = styled(IconButton)(({ theme }) => ({
+    color: '#3F71A8',
+    backgroundColor: 'transparent',
+    borderRadius: '50%',
+    marginTop: theme.spacing(2),
+    '&:hover': {
+        color: '#fff',
+        backgroundColor: '#3F71A8',
+    },
+    width: 40,
+    height: 40,
+}));
 
 const MobileNavbar = () => {
     const [mobileOpen, setMobileOpen] = useState(false);
@@ -16,14 +31,15 @@ const MobileNavbar = () => {
         <>
             <AppBar position="fixed" sx={{ backgroundColor: 'transparent', boxShadow: 'none' }}>
                 <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <IconButton
-                        color="inherit"
+                    <StyledMenuIconButton
                         aria-label="open drawer"
                         edge="start"
                         onClick={handleDrawerToggle}
                     >
-                        <MenuIcon />
-                    </IconButton>
+                        <Box sx={{ width: 24, height: 24, position: 'relative' }}>
+                            <Image src={hamburgerIcon} alt="Menu" width={24} height={24} />
+                        </Box>
+                    </StyledMenuIconButton>
                     <Logo sx={{ flexGrow: 1, textAlign: 'center' }} />
                     <UserIcon />
                 </Toolbar>
