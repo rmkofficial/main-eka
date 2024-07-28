@@ -6,7 +6,7 @@ import UserIcon from './UserIcon';
 
 const Navbar = () => {
     return (
-        <AppBar position="static" sx={{ backgroundColor: '#000000' }}>
+        <AppBar position="fixed" sx={{ backgroundColor: 'transparent', boxShadow: 'none', paddingTop: "26px" }}>
             <Container maxWidth="lg">
                 <Toolbar disableGutters>
                     <SocialIcons />
