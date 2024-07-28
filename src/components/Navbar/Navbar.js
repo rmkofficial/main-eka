@@ -1,20 +1,16 @@
 import React from 'react';
-import { AppBar, Toolbar, Container } from '@mui/material';
-import SocialIcons from './SocialIcons';
-import NavLinks from './NavLinks';
-import UserIcon from './UserIcon';
+import { useTheme, useMediaQuery } from '@mui/material';
+import MobileNavbar from './Mobile/MobileNavbar';
+import DesktopNavbar from './Desktop/DesktopNavbar';
 
 const Navbar = () => {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+
     return (
-        <AppBar position="fixed" sx={{ backgroundColor: 'transparent', boxShadow: 'none', paddingTop: "26px" }}>
-            <Container maxWidth="lg">
-                <Toolbar disableGutters>
-                    <SocialIcons />
-                    <NavLinks />
-                    <UserIcon />
-                </Toolbar>
-            </Container>
-        </AppBar>
+        <>
+            {isMobile ? <MobileNavbar /> : <DesktopNavbar />}
+        </>
     );
 };
 

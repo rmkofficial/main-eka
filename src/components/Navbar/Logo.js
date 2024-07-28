@@ -3,9 +3,9 @@ import Image from 'next/image';
 import logo from '../../../public/logo.png';
 import { Box } from '@mui/material';
 
-const Logo = () => {
+const Logo = (props) => {
     return (
-        <Box sx={{ flexGrow: 0, display: 'flex', justifyContent: 'center', margin: '0 2rem' }}>
+        <Box sx={{ flexGrow: 0, display: 'flex', justifyContent: 'center', margin: "0 2rem", ...props.sx }}>
             <Image src={logo} alt="Logo" width={80} height={80} priority />
         </Box>
     );

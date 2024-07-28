@@ -1,16 +1,17 @@
 import React from 'react';
-import { Button, Box } from '@mui/material';
+import { Button } from '@mui/material';
 import { styled } from '@mui/system';
-import Logo from './Logo';
+import Logo from '../Logo';
 
-const LinkContainer = styled('div')({
+const LinkContainer = styled('div')(({ theme }) => ({
     display: 'flex',
     flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
-});
+    marginTop: theme.spacing(2),
+}));
 
-const StyledButton = styled(Button)({
+const StyledButton = styled(Button)(({ theme }) => ({
     color: '#fff',
     fontFamily: 'Roboto, sans-serif',
     fontWeight: 500,
@@ -33,7 +34,7 @@ const StyledButton = styled(Button)({
         backgroundColor: '#3F71A8',
         transition: 'width 0.3s',
     },
-});
+}));
 
 const NavLinks = () => {
     return (

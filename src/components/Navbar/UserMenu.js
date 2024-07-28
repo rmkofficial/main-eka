@@ -10,9 +10,7 @@ const StyledMenuItem = styled(MenuItem)(({ theme }) => ({
     color: '#3F71A8',
     '&:hover': {
         color: '#fff',
-        '& .MuiListItemIcon-root': {
-            color: '#fff',
-        },
+        backgroundColor: '#3F71A8',
     },
     '& .MuiListItemIcon-root': {
         color: 'inherit',
@@ -21,8 +19,8 @@ const StyledMenuItem = styled(MenuItem)(({ theme }) => ({
 
 const TransparentMenu = styled(Menu)(({ theme }) => ({
     '& .MuiPaper-root': {
-        backgroundColor: 'rgba(0, 0, 0, 0.2)', 
-        backdropFilter: 'blur(5px)', 
+        backgroundColor: 'rgba(0, 0, 0, 0.5)', // Transparan arka plan
+        backdropFilter: 'blur(10px)', // Arka planı bulanıklaştırma
     },
 }));
 
@@ -41,13 +39,13 @@ const UserMenu = ({ anchorEl, open, handleClose }) => {
                 horizontal: 'center',
             }}
         >
-            <StyledMenuItem onClick={handleClose} aria-label="Kayıt Ol">
+            <StyledMenuItem onClick={handleClose}>
                 <ListItemIcon>
                     <PersonAddIcon />
                 </ListItemIcon>
                 <Typography variant="inherit">Kayıt Ol</Typography>
             </StyledMenuItem>
-            <StyledMenuItem onClick={handleClose} aria-label="Giriş Yap">
+            <StyledMenuItem onClick={handleClose}>
                 <ListItemIcon>
                     <LoginIcon />
                 </ListItemIcon>

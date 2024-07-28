@@ -8,10 +8,16 @@ const StyledIconButton = styled(IconButton)(({ theme }) => ({
     color: '#3F71A8',
     backgroundColor: 'transparent',
     borderRadius: '50%',
+    marginTop: theme.spacing(2),
     '&:hover': {
         color: '#fff',
         backgroundColor: '#3F71A8',
     },
+    '& svg': {
+        fontSize: '1.5rem',
+    },
+    width: 40,
+    height: 40,
 }));
 
 const UserIcon = () => {
