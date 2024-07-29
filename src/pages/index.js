@@ -2,14 +2,14 @@
 import React from 'react';
 import Navbar from '../components/Navbar/Navbar';
 import Hero from '../components/Hero/Hero';
-import DesktopCategories from '../components/Categories/DesktopCategories';
+import Categories from '../components/Categories/Categories';
 
 const Home = () => {
     return (
         <div>
             <Navbar />
             <Hero />
-            <DesktopCategories />
+            <Categories />
         </div>
     );
 };

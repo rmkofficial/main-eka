@@ -1,7 +1,12 @@
 import React from 'react';
+import Slider from 'react-slick';
 import { Container, Typography, Box, Card, CardContent, CardMedia } from '@mui/material';
 import { styled } from '@mui/system';
 import data from '../../data/data';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const CategoriesSectionWrapper = styled(Box)(({ theme }) => ({
     position: 'relative',
@@ -13,7 +18,7 @@ const CategoriesSectionWrapper = styled(Box)(({ theme }) => ({
     textAlign: 'center',
     color: '#fff',
     overflow: 'hidden',
-    backgroundColor: '#fff',
+    backgroundColor: '#1e242e',
     backgroundImage: 'url(http://www.transparenttextures.com/patterns/football-no-lines.png)',
     '&::before': {
         content: '""',
@@ -22,7 +27,6 @@ const CategoriesSectionWrapper = styled(Box)(({ theme }) => ({
         left: 0,
         width: '100%',
         height: '100%',
-        backgroundColor: 'rgba(255, 255, 255, 0.9)', // Karartma
         zIndex: 1,
     },
 }));
@@ -34,7 +38,7 @@ const CategoriesContent = styled(Container)(({ theme }) => ({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    maxWidth: 'none', // Tüm genişliği kapsaması için
+    maxWidth: 'none',
 }));
 
 const CategoryTitle = styled(Typography)(({ theme }) => ({
@@ -45,15 +49,32 @@ const CategoryTitle = styled(Typography)(({ theme }) => ({
     },
 }));
 
-const CardWrapper = styled(Box)(({ theme }) => ({
-    display: 'flex',
-    flexDirection: 'column',
-    gap: theme.spacing(2),
-    padding: theme.spacing(2),
+const StyledSlider = styled(Slider)(({ theme }) => ({
+    width: '100%',
+    '& .slick-slide': {
+        padding: theme.spacing(2),
+        display: 'flex',
+        justifyContent: 'center',
+    },
+    '& .slick-list': {
+        padding: '0 20px',
+    },
+    '& .slick-dots li button:before': {
+        fontSize: '12px',
+        color: '#fff',
+    },
+    '& .slick-dots li.slick-active button:before': {
+        color: '#3F71A8',
+    },
 }));
 
-const StyledCard = styled(Card)(({ theme }) => ({
+const StyledCard = styled(Card)(({ theme, isActive }) => ({
     transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
+    width: '80%',
+    height: '300px',
+    transform: isActive ? 'scale(1.1)' : 'scale(1)',
+    boxShadow: isActive ? '0 20px 40px rgba(0, 0, 0, 0.5)' : 'none',
+    zIndex: isActive ? 1 : 0,
     '&:hover': {
         transform: 'scale(1.05)',
         boxShadow: '0 4px 20px rgba(0, 0, 0, 0.2)',
@@ -68,16 +89,67 @@ const StyledCardMedia = styled(CardMedia)(({ theme }) => ({
     transition: 'filter 0.3s ease-in-out',
 }));
 
+const ArrowButton = styled(Box)(({ theme }) => ({
+    color: '#fff',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    '&:hover': {
+        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    },
+    position: 'absolute',
+    top: '50%',
+    transform: 'translateY(-50%)',
+    zIndex: 2,
+    width: '40px',
+    height: '40px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    cursor: 'pointer',
+    borderRadius: '50%',
+}));
+
+const NextArrow = (props) => {
+    const { onClick } = props;
+    return (
+        <ArrowButton style={{ right: '10px' }} onClick={onClick}>
+            <ArrowForwardIosIcon style={{ fontSize: '1.5rem' }} />
+        </ArrowButton>
+    );
+};
+
+const PrevArrow = (props) => {
+    const { onClick } = props;
+    return (
+        <ArrowButton style={{ left: '10px' }} onClick={onClick}>
+            <ArrowBackIosIcon style={{ fontSize: '1.5rem' }} />
+        </ArrowButton>
+    );
+};
+
 const MobileCategories = () => {
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        centerMode: true,
+        nextArrow: <NextArrow />,
+        prevArrow: <PrevArrow />,
+        beforeChange: (current, next) => setCurrentSlide(next),
+    };
+
+    const [currentSlide, setCurrentSlide] = React.useState(0);
+
     return (
         <CategoriesSectionWrapper>
             <CategoriesContent>
                 <CategoryTitle variant="h2" component="h2">
                     Kategoriler
                 </CategoryTitle>
-                <CardWrapper>
+                <StyledSlider {...settings}>
                     {data.map((categoryData, index) => (
-                        <StyledCard key={index}>
+                        <StyledCard key={index} isActive={index === currentSlide}>
                             <StyledCardMedia
                                 image={categoryData.image}
                                 title={categoryData.category}
@@ -89,7 +161,7 @@ const MobileCategories = () => {
                             </CardContent>
                         </StyledCard>
                     ))}
-                </CardWrapper>
+                </StyledSlider>
             </CategoriesContent>
         </CategoriesSectionWrapper>
     );
