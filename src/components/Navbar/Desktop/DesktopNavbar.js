@@ -26,8 +26,8 @@ const DesktopNavbar = () => {
     return (
         <AppBar position="fixed" sx={{ backgroundColor: scrolled ? 'rgba(0, 0, 0, 0.9)' : 'transparent', boxShadow: 'none' }}>
             <Container maxWidth="lg">
-                <Toolbar disableGutters sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <Box sx={{ display: 'flex', flexGrow: 1 }}>
+                <Toolbar disableGutters sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <Box sx={{ display: 'flex', flexGrow: 1, alignItems: "center" }}>
                         <SocialIcons />
                         <NavLinks />
                         <UserIcon />

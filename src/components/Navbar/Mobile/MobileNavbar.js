@@ -53,7 +53,7 @@ const MobileNavbar = () => {
                         edge="start"
                         onClick={handleDrawerToggle}
                     >
-                        <Box sx={{ width: 24, height: 24, position: 'relative' }}>
+                        <Box sx={{ width: 24, height: 24, position: 'relative', alignItems: "center" }}>
                             <Image
                                 src={hamburgerIcon}
                                 alt="Menu"

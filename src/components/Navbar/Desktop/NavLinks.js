@@ -16,7 +16,6 @@ const StyledButton = styled(Button)(({ theme }) => ({
     fontFamily: 'Roboto, sans-serif',
     fontWeight: 500,
     position: 'relative',
-    margin: '0 0.5rem',
     '&:hover': {
         color: '#3F71A8',
         background: 'none',
