@@ -68,7 +68,9 @@ const StyledSlider = styled(Slider)(({ theme }) => ({
     },
 }));
 
-const StyledCard = styled(Card)(({ theme, isActive }) => ({
+const StyledCard = styled(Card, {
+    shouldForwardProp: (prop) => prop !== 'isActive',
+})(({ theme, isActive }) => ({
     transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
     width: '80%',
     height: '300px',
