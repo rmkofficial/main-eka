@@ -14,6 +14,11 @@ const fadeIn = keyframes`
   to { opacity: 1 }
 `;
 
+const buttonFadeIn = keyframes`
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+`;
+
 const HeroSection = styled(Box)(({ theme }) => ({
     position: 'relative',
     height: '100vh',
@@ -24,7 +29,7 @@ const HeroSection = styled(Box)(({ theme }) => ({
     textAlign: 'left',
     color: '#fff',
     overflow: 'hidden',
-    paddingLeft: theme.spacing(4),
+    paddingLeft: theme.spacing(4), // Sola hizalama için padding
     '&::before': {
         content: '""',
         position: 'absolute',
@@ -51,44 +56,45 @@ const HeroTitle = styled(Typography)(({ theme }) => ({
     marginBottom: theme.spacing(2),
     overflow: 'hidden',
     whiteSpace: 'nowrap',
-    width: 'fit-content',
-    animation: `${typing} 4s steps(30) forwards`,
+    animation: `${typing} 3s steps(30, end) forwards`,
     fontSize: '4rem',
-    position: 'relative',
-    left: 0,
+    textAlign: 'left',
+    display: 'inline-block',
+    width: 'fit-content',
 }));
 
 const HeroButton = styled(Button)(({ theme }) => ({
     opacity: 0,
-    animation: `${fadeIn} 2s ease-in-out forwards`,
+    animation: `${buttonFadeIn} 2s ease-in-out forwards`,
     animationDelay: '1s',
     fontSize: '1rem',
     padding: theme.spacing(1.5, 4),
-    marginTop: theme.spacing(2),
+    marginTop: theme.spacing(2), 
     backgroundColor: 'rgba(255, 255, 255, 0.2)',
     '&:hover': {
         backgroundColor: 'rgba(255, 255, 255, 0.3)',
-    }
+    },
 }));
 
 const DesktopHero = () => {
     return (
         <HeroSection>
-            <Image
-                src={heroImage}
-                alt="Hero Image"
-                fill
-                style={{ objectFit: 'cover', zIndex: -1 }}
-                objectFit="cover"
-                quality={100}
-                priority
-                sizes="100vh"
-            />
+            <Box sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
+                <Image
+                    src={heroImage}
+                    alt="Hero Image"
+                    fill
+                    quality={100}
+                    priority
+                    sizes="100vw"
+                    style={{ objectFit: 'cover' }}
+                />
+            </Box>
             <HeroContentWrapper>
                 <HeroTitle variant="h2" component="h1" gutterBottom>
                     Geleceğinizi İnşa Edin
                 </HeroTitle>
-                <HeroButton variant="contained" color="primary">
+                <HeroButton variant="contained">
                     Daha Fazla Bilgi
                 </HeroButton>
             </HeroContentWrapper>

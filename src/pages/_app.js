@@ -3,18 +3,19 @@ import Head from 'next/head';
 import { CssBaseline } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import '../styles/globals.css';
+import Loader from '../components/Loader/Loader';
 
 const theme = createTheme();
 
 export default function MyApp(props) {
     const { Component, pageProps } = props;
+    const [loading, setLoading] = React.useState(true);
 
     React.useEffect(() => {
-        // Remove the server-side injected CSS.
-        const jssStyles = document.querySelector('#jss-server-side');
-        if (jssStyles) {
-            jssStyles.parentElement.removeChild(jssStyles);
-        }
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, 1000);
+        return () => clearTimeout(timer);
     }, []);
 
     return (
@@ -26,7 +27,7 @@ export default function MyApp(props) {
             </Head>
             <ThemeProvider theme={theme}>
                 <CssBaseline />
-                <Component {...pageProps} />
+                {loading ? <Loader /> : <Component {...pageProps} />}
             </ThemeProvider>
         </React.Fragment>
     );

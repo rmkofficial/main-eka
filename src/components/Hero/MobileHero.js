@@ -14,6 +14,11 @@ const fadeIn = keyframes`
   to { opacity: 1 }
 `;
 
+const buttonFadeIn = keyframes`
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+`;
+
 const HeroSection = styled(Box)(({ theme }) => ({
     position: 'relative',
     height: '100vh',
@@ -43,50 +48,52 @@ const HeroContentWrapper = styled(Container)(({ theme }) => ({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    maxWidth: 'none',
+    maxWidth: 'none', 
 }));
 
 const HeroTitle = styled(Typography)(({ theme }) => ({
     marginBottom: theme.spacing(2),
     overflow: 'hidden',
     whiteSpace: 'nowrap',
-    width: 'fit-content',
-    animation: `${typing} 2s steps(30, end) forwards`,
+    animation: `${typing} 1.5s steps(30, end) forwards`,
     fontSize: '2rem',
-    position: 'relative',
-    left: 0,
+    textAlign: 'center',
+    display: 'inline-block',
+    width: 'fit-content',
 }));
 
 const HeroButton = styled(Button)(({ theme }) => ({
     opacity: 0,
-    animation: `${fadeIn} 2s ease-in-out forwards`,
+    animation: `${buttonFadeIn} 2s ease-in-out forwards`,
     animationDelay: '0.75s',
     fontSize: '0.8rem',
     padding: theme.spacing(1, 2),
-    marginTop: theme.spacing(2),
+    marginTop: theme.spacing(2), 
     backgroundColor: 'rgba(255, 255, 255, 0.2)',
     '&:hover': {
         backgroundColor: 'rgba(255, 255, 255, 0.3)',
-    }
+    },
 }));
 
 const MobileHero = () => {
     return (
         <HeroSection>
-            <Image
-                src={heroImage}
-                alt="Hero Image"
-                fill
-                style={{ objectFit: 'cover', zIndex: -1 }}
-                quality={100}
-                priority
-                sizes="100vw"
-            />
+            <Box sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
+                <Image
+                    src={heroImage}
+                    alt="Hero Image"
+                    fill
+                    quality={100}
+                    priority
+                    sizes="100vw"
+                    style={{ objectFit: 'cover' }}
+                />
+            </Box>
             <HeroContentWrapper>
                 <HeroTitle variant="h2" component="h1" gutterBottom>
                     Geleceğinizi İnşa Edin
                 </HeroTitle>
-                <HeroButton variant="contained" color="primary">
+                <HeroButton variant="contained">
                     Daha Fazla Bilgi
                 </HeroButton>
             </HeroContentWrapper>
