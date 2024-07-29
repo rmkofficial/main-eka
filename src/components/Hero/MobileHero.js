@@ -24,11 +24,12 @@ const HeroSection = styled(Box)(({ theme }) => ({
     height: '100vh',
     width: '100%',
     display: 'flex',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
-    textAlign: 'center',
+    textAlign: 'left',
     color: '#fff',
     overflow: 'hidden',
+    paddingLeft: theme.spacing(2), 
     '&::before': {
         content: '""',
         position: 'absolute',
@@ -47,7 +48,7 @@ const HeroContentWrapper = styled(Container)(({ theme }) => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     maxWidth: 'none', 
 }));
 
@@ -57,7 +58,7 @@ const HeroTitle = styled(Typography)(({ theme }) => ({
     whiteSpace: 'nowrap',
     animation: `${typing} 1.5s steps(30, end) forwards`,
     fontSize: '2rem',
-    textAlign: 'center',
+    textAlign: 'left',
     display: 'inline-block',
     width: 'fit-content',
 }));
@@ -65,10 +66,10 @@ const HeroTitle = styled(Typography)(({ theme }) => ({
 const HeroButton = styled(Button)(({ theme }) => ({
     opacity: 0,
     animation: `${buttonFadeIn} 2s ease-in-out forwards`,
-    animationDelay: '0.75s',
+    animationDelay: '0.5s',
     fontSize: '0.8rem',
     padding: theme.spacing(1, 2),
-    marginTop: theme.spacing(2), 
+    marginTop: theme.spacing(2),
     backgroundColor: 'rgba(255, 255, 255, 0.2)',
     '&:hover': {
         backgroundColor: 'rgba(255, 255, 255, 0.3)',
