@@ -1,12 +1,7 @@
 import React from 'react';
-import Slider from 'react-slick';
 import { Container, Typography, Box, Card, CardContent, CardMedia } from '@mui/material';
 import { styled } from '@mui/system';
 import data from '../../data/data';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const CategoriesSectionWrapper = styled(Box)(({ theme }) => ({
     position: 'relative',
@@ -18,7 +13,7 @@ const CategoriesSectionWrapper = styled(Box)(({ theme }) => ({
     textAlign: 'center',
     color: '#fff',
     overflow: 'hidden',
-    backgroundColor: '#1e242e',
+    backgroundColor: '#fff',
     backgroundImage: 'url(http://www.transparenttextures.com/patterns/football-no-lines.png)',
     '&::before': {
         content: '""',
@@ -27,6 +22,7 @@ const CategoriesSectionWrapper = styled(Box)(({ theme }) => ({
         left: 0,
         width: '100%',
         height: '100%',
+        backgroundColor: 'rgba(255, 255, 255, 0.9)', // Karartma
         zIndex: 1,
     },
 }));
@@ -38,7 +34,7 @@ const CategoriesContent = styled(Container)(({ theme }) => ({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    maxWidth: 'none', 
+    maxWidth: 'none', // Tüm genişliği kapsaması için
 }));
 
 const CategoryTitle = styled(Typography)(({ theme }) => ({
@@ -49,14 +45,11 @@ const CategoryTitle = styled(Typography)(({ theme }) => ({
     },
 }));
 
-const StyledSlider = styled(Slider)(({ theme }) => ({
-    width: '100%',
-    '& .slick-slide': {
-        padding: theme.spacing(2),
-    },
-    '& .slick-list': {
-        padding: '0 40px',
-    },
+const CardWrapper = styled(Box)(({ theme }) => ({
+    display: 'flex',
+    flexDirection: 'column',
+    gap: theme.spacing(2),
+    padding: theme.spacing(2),
 }));
 
 const StyledCard = styled(Card)(({ theme }) => ({
@@ -75,80 +68,14 @@ const StyledCardMedia = styled(CardMedia)(({ theme }) => ({
     transition: 'filter 0.3s ease-in-out',
 }));
 
-const ArrowButton = styled(Box)(({ theme }) => ({
-    color: '#fff',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    '&:hover': {
-        backgroundColor: 'rgba(0, 0, 0, 0.7)',
-    },
-    position: 'absolute',
-    top: '50%',
-    transform: 'translateY(-50%)',
-    zIndex: 2,
-    width: '80px',
-    height: '80px',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    cursor: 'pointer',
-}));
-
-const NextArrow = (props) => {
-    const { onClick } = props;
-    return (
-        <ArrowButton style={{ right: '-100px' }} onClick={onClick}>
-            <ArrowForwardIosIcon style={{ fontSize: '3rem' }} />
-        </ArrowButton>
-    );
-};
-
-const PrevArrow = (props) => {
-    const { onClick } = props;
-    return (
-        <ArrowButton style={{ left: '-100px' }} onClick={onClick}>
-            <ArrowBackIosIcon style={{ fontSize: '3rem' }} />
-        </ArrowButton>
-    );
-};
-
-const DesktopCategories = () => {
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        centerMode: true,
-        centerPadding: '0px',
-        nextArrow: <NextArrow />,
-        prevArrow: <PrevArrow />,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: true
-                }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-        ]
-    };
-
+const MobileCategories = () => {
     return (
         <CategoriesSectionWrapper>
             <CategoriesContent>
                 <CategoryTitle variant="h2" component="h2">
                     Kategoriler
                 </CategoryTitle>
-                <StyledSlider {...settings}>
+                <CardWrapper>
                     {data.map((categoryData, index) => (
                         <StyledCard key={index}>
                             <StyledCardMedia
@@ -162,10 +89,10 @@ const DesktopCategories = () => {
                             </CardContent>
                         </StyledCard>
                     ))}
-                </StyledSlider>
+                </CardWrapper>
             </CategoriesContent>
         </CategoriesSectionWrapper>
     );
 };
 
-export default DesktopCategories;
+export default MobileCategories;
