@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AppBar, Toolbar, IconButton, Box } from '@mui/material';
 import Logo from '../Logo';
 import UserIcon from '../UserIcon';
@@ -22,14 +22,31 @@ const StyledMenuIconButton = styled(IconButton)(({ theme }) => ({
 
 const MobileNavbar = () => {
     const [mobileOpen, setMobileOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
 
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
         <>
-            <AppBar position="fixed" sx={{ backgroundColor: 'transparent', boxShadow: 'none' }}>
+            <AppBar position="fixed" sx={{ backgroundColor: scrolled ? 'rgba(0, 0, 0, 0.9)' : 'transparent', boxShadow: 'none' }}>
                 <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <StyledMenuIconButton
                         aria-label="open drawer"
@@ -37,7 +54,13 @@ const MobileNavbar = () => {
                         onClick={handleDrawerToggle}
                     >
                         <Box sx={{ width: 24, height: 24, position: 'relative' }}>
-                            <Image src={hamburgerIcon} alt="Menu" width={24} height={24} />
+                            <Image
+                                src={hamburgerIcon}
+                                alt="Menu"
+                                fill
+                                sizes="40px"
+                                style={{ objectFit: 'cover' }}
+                            />
                         </Box>
                     </StyledMenuIconButton>
                     <Logo sx={{ flexGrow: 1, textAlign: 'center' }} />
