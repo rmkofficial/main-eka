@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '@mui/material';
 import { styled } from '@mui/system';
 import Logo from '../Logo';
+import Link from 'next/link';
 
 const LinkContainer = styled('div')(({ theme }) => ({
     display: 'flex',
@@ -38,7 +39,10 @@ const StyledButton = styled(Button)(({ theme }) => ({
 const NavLinks = () => {
     return (
         <LinkContainer>
-            <StyledButton color="inherit">Ana Sayfa</StyledButton>
+            <Link href="/" passHref>
+                <StyledButton color="inherit">Ana Sayfa</StyledButton>
+            </Link>
+
             <StyledButton color="inherit">Hizmetler</StyledButton>
             <Logo />
             <StyledButton color="inherit">Hakkımızda</StyledButton>
