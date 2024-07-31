@@ -19,7 +19,7 @@ const CategoriesSectionWrapper = styled(Box)(({ theme }) => ({
     color: '#fff',
     overflow: 'hidden',
     backgroundColor: '#1e242e',
-    backgroundImage: 'url(http://www.transparenttextures.com/patterns/football-no-lines.png)',
+    backgroundImage: 'url(https://www.transparenttextures.com/patterns/football-no-lines.png)',
     '&::before': {
         content: '""',
         position: 'absolute',
@@ -38,7 +38,7 @@ const CategoriesContent = styled(Container)(({ theme }) => ({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    maxWidth: 'none', 
+    maxWidth: 'none',
 }));
 
 const CategoryTitle = styled(Typography)(({ theme }) => ({

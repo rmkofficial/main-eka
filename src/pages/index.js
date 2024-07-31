@@ -3,6 +3,7 @@ import React from 'react';
 import Navbar from '../components/Navbar/Navbar';
 import Hero from '../components/Hero/Hero';
 import Categories from '../components/Categories/Categories';
+import PopulerCourses from '../components/PopularCourses/PopularCourses';
 
 const Home = () => {
     return (
@@ -10,6 +11,7 @@ const Home = () => {
             <Navbar />
             <Hero />
             <Categories />
+            <PopulerCourses />
         </div>
     );
 };
