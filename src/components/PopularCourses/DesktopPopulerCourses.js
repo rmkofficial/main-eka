@@ -1,9 +1,11 @@
 import React, { useState, useRef } from 'react';
 import Slider from 'react-slick';
-import { Container, Typography, Box, Card, CardMedia, Modal, Backdrop } from '@mui/material';
+import { Container, Typography, Box, Card, CardContent, CardMedia, Modal, Backdrop } from '@mui/material';
 import { styled } from '@mui/system';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const CoursesSectionWrapper = styled(Box)(({ theme }) => ({
     position: 'relative',
@@ -131,7 +133,43 @@ const ModalTextContainer = styled(Box)(({ theme }) => ({
     textAlign: 'center',
 }));
 
-const PopularCourses = () => {
+const ArrowButton = styled(Box)(({ theme }) => ({
+    color: '#fff',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    '&:hover': {
+        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    },
+    position: 'absolute',
+    top: '50%',
+    transform: 'translateY(-50%)',
+    zIndex: 2,
+    width: '80px',
+    height: '80px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    cursor: 'pointer',
+}));
+
+const NextArrow = (props) => {
+    const { onClick } = props;
+    return (
+        <ArrowButton style={{ right: '-100px' }} onClick={onClick}>
+            <ArrowForwardIosIcon style={{ fontSize: '3rem' }} />
+        </ArrowButton>
+    );
+};
+
+const PrevArrow = (props) => {
+    const { onClick } = props;
+    return (
+        <ArrowButton style={{ left: '-100px' }} onClick={onClick}>
+            <ArrowBackIosIcon style={{ fontSize: '3rem' }} />
+        </ArrowButton>
+    );
+};
+
+const DesktopPoperCourses = () => {
     const [open, setOpen] = useState(false);
     const [selectedCourse, setSelectedCourse] = useState(null);
     const sliderRef = useRef(null);
@@ -164,14 +202,36 @@ const PopularCourses = () => {
         slidesToScroll: 1,
         centerMode: true,
         centerPadding: '20%',
+        nextArrow: <NextArrow />,
+        prevArrow: <PrevArrow />,
     };
 
     const coursesData = [
-        { title: 'Zaman Yönetimi', image: 'https://picsum.photos/800/600?random=1', description: 'Etkili zaman yönetimi teknikleri.' },
-        { title: 'Moda Tasarımı', image: 'https://picsum.photos/800/600?random=2', description: 'Moda tasarımı prensipleri ve teknikleri.' },
-        { title: 'İngilizce', image: 'https://picsum.photos/800/600?random=3', description: 'Başlangıçtan ileri seviyeye İngilizce eğitimi.' },
-        { title: 'İnsan Kaynakları Yönetimi', image: 'https://picsum.photos/800/600?random=4', description: 'İK yönetimi ve stratejileri.' },
-        { title: 'Siber Güvenlik', image: 'https://picsum.photos/800/600?random=5', description: 'Siber güvenlik temelleri ve ileri seviye teknikler.' },
+        {
+            title: 'Zaman Yönetimi',
+            image: 'https://images.unsplash.com/photo-1503602642458-232111445657?fit=crop&w=800&q=80',
+            description: 'Etkili zaman yönetimi teknikleri.'
+        },
+        {
+            title: 'Moda Tasarımı',
+            image: 'https://images.unsplash.com/photo-1520004434532-668416a08753?fit=crop&w=800&q=80',
+            description: 'Moda tasarımı prensipleri ve teknikleri.'
+        },
+        {
+            title: 'İngilizce',
+            image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?fit=crop&w=800&q=80',
+            description: 'Başlangıçtan ileri seviyeye İngilizce eğitimi.'
+        },
+        {
+            title: 'İnsan Kaynakları Yönetimi',
+            image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?fit=crop&w=800&q=80',
+            description: 'İK yönetimi ve stratejileri.'
+        },
+        {
+            title: 'Siber Güvenlik',
+            image: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?fit=crop&w=800&q=80',
+            description: 'Siber güvenlik temelleri ve ileri seviye teknikler.'
+        },
     ];
 
     return (
@@ -214,7 +274,7 @@ const PopularCourses = () => {
                         <Typography variant="h6" component="h2">
                             {selectedCourse?.title}
                         </Typography>
-                        <Typography variant="body2" component="p">
+                        <Typography variant="h5" component="p">
                             {selectedCourse?.description}
                         </Typography>
                     </ModalTextContainer>
@@ -224,4 +284,4 @@ const PopularCourses = () => {
     );
 };
 
-export default PopularCourses;
+export default DesktopPoperCourses;

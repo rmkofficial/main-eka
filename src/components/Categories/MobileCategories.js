@@ -77,6 +77,7 @@ const StyledCard = styled(Card, {
     transform: isActive ? 'scale(1.1)' : 'scale(1)',
     boxShadow: isActive ? '0 20px 40px rgba(0, 0, 0, 0.5)' : 'none',
     zIndex: isActive ? 1 : 0,
+    cursor: 'pointer',
     '&:hover': {
         transform: 'scale(1.05)',
         boxShadow: '0 4px 20px rgba(0, 0, 0, 0.2)',
@@ -89,6 +90,12 @@ const StyledCard = styled(Card, {
 const StyledCardMedia = styled(CardMedia)(({ theme }) => ({
     height: '200px',
     transition: 'filter 0.3s ease-in-out',
+}));
+
+const StyledCardContent = styled(CardContent)(({ theme }) => ({
+    height: '100px',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', 
+    color: '#fff',
 }));
 
 const ArrowButton = styled(Box)(({ theme }) => ({
@@ -156,11 +163,11 @@ const MobileCategories = () => {
                                 image={categoryData.image}
                                 title={categoryData.category}
                             />
-                            <CardContent>
+                            <StyledCardContent>
                                 <Typography variant="h5" component="div">
                                     {categoryData.category}
                                 </Typography>
-                            </CardContent>
+                            </StyledCardContent>
                         </StyledCard>
                     ))}
                 </StyledSlider>

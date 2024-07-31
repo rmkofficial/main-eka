@@ -61,6 +61,7 @@ const StyledSlider = styled(Slider)(({ theme }) => ({
 
 const StyledCard = styled(Card)(({ theme }) => ({
     transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
+    cursor: 'pointer', 
     '&:hover': {
         transform: 'scale(1.05)',
         boxShadow: '0 4px 20px rgba(0, 0, 0, 0.2)',
@@ -74,6 +75,13 @@ const StyledCardMedia = styled(CardMedia)(({ theme }) => ({
     height: '200px',
     transition: 'filter 0.3s ease-in-out',
 }));
+
+const StyledCardContent = styled(CardContent)(({ theme }) => ({
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', 
+    padding: theme.spacing(2),
+    color: '#fff',
+}));
+
 
 const ArrowButton = styled(Box)(({ theme }) => ({
     color: '#fff',
@@ -155,11 +163,11 @@ const DesktopCategories = () => {
                                 image={categoryData.image}
                                 title={categoryData.category}
                             />
-                            <CardContent>
+                            <StyledCardContent>
                                 <Typography variant="h5" component="div">
                                     {categoryData.category}
                                 </Typography>
-                            </CardContent>
+                            </StyledCardContent>
                         </StyledCard>
                     ))}
                 </StyledSlider>

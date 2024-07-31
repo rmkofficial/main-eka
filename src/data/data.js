@@ -1,7 +1,7 @@
 const data = [
     {
         category: 'Teknoloji',
-        image: '/images/technology.jpg',
+        image: 'https://images.unsplash.com/photo-1508780709619-79562169bc64?fit=crop&w=800&q=80',
         courses: [
             { id: 1, title: 'Web Geliştirme', description: 'HTML, CSS ve JavaScript ile web geliştirme temelleri.', duration: '10 hafta' },
             { id: 2, title: 'Yapay Zeka', description: 'Python kullanarak yapay zeka ve makine öğrenimi algoritmaları.', duration: '12 hafta' },
@@ -12,7 +12,7 @@ const data = [
     },
     {
         category: 'İşletme',
-        image: '/images/business.jpg',
+        image: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?fit=crop&w=800&q=80',
         courses: [
             { id: 6, title: 'Proje Yönetimi', description: 'Proje yönetimi prensipleri ve uygulamaları.', duration: '8 hafta' },
             { id: 7, title: 'Pazarlama Stratejileri', description: 'Modern pazarlama stratejileri ve teknikleri.', duration: '6 hafta' },
@@ -23,7 +23,7 @@ const data = [
     },
     {
         category: 'Dil Eğitimi',
-        image: '/images/language.jpg',
+        image: 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?fit=crop&w=800&q=80',
         courses: [
             { id: 11, title: 'İngilizce', description: 'Başlangıçtan ileri seviyeye İngilizce eğitimi.', duration: '14 hafta' },
             { id: 12, title: 'Almanca', description: 'Başlangıçtan ileri seviyeye Almanca eğitimi.', duration: '12 hafta' },
@@ -34,7 +34,7 @@ const data = [
     },
     {
         category: 'Sanat ve Tasarım',
-        image: '/images/art.jpg',
+        image: 'https://images.unsplash.com/photo-1509475826633-fed577a2c71b?fit=crop&w=800&q=80',
         courses: [
             { id: 16, title: 'Grafik Tasarım', description: 'Adobe Photoshop ve Illustrator kullanarak grafik tasarım temelleri.', duration: '8 hafta' },
             { id: 17, title: 'Moda Tasarımı', description: 'Moda tasarımı prensipleri ve teknikleri.', duration: '12 hafta' },
@@ -45,7 +45,7 @@ const data = [
     },
     {
         category: 'Kişisel Gelişim',
-        image: '/images/personal-development.jpg',
+        image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?fit=crop&w=800&q=80',
         courses: [
             { id: 21, title: 'Liderlik ve Yönetim', description: 'Liderlik ve yönetim becerileri geliştirme.', duration: '8 hafta' },
             { id: 22, title: 'Zaman Yönetimi', description: 'Etkili zaman yönetimi teknikleri.', duration: '4 hafta' },
