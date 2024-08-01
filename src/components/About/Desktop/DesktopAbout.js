@@ -50,7 +50,7 @@ const StyledCardContent = styled(CardContent)(({ theme }) => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    cursor: 'pointer', 
+    cursor: 'pointer',
 }));
 
 const Title = styled(Typography)(({ theme }) => ({
@@ -74,7 +74,7 @@ const DesktopAbout = () => {
         },
         {
             type: 'image',
-            imageUrl: 'https://images.unsplash.com/photo-1496317899792-9d7dbcd928a1?fit=crop&w=800&q=80', 
+            imageUrl: 'https://images.unsplash.com/photo-1496317899792-9d7dbcd928a1?fit=crop&w=800&q=80',
         },
         {
             type: 'text',
@@ -83,7 +83,7 @@ const DesktopAbout = () => {
         },
         {
             type: 'image',
-            imageUrl: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?fit=crop&w=800&q=80', 
+            imageUrl: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?fit=crop&w=800&q=80',
         },
         {
             type: 'text',
@@ -92,13 +92,13 @@ const DesktopAbout = () => {
         },
         {
             type: 'image',
-            imageUrl: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?fit=crop&w=800&q=80', 
+            imageUrl: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?fit=crop&w=800&q=80',
         },
     ];
 
     return (
         <AboutSectionWrapper>
-            <Container sx={{ textAlign: 'center', marginBottom: 4 }}>
+            <Container sx={{ textAlign: 'center', marginBottom: 4 }} id="about-section">
                 <Typography variant="h4" component="h1" gutterBottom sx={{ fontWeight: 'bold', fontSize: '2.5rem', color: '#fff' }}>
                     Eğitim Kariyer Akademisi
                 </Typography>

@@ -6,6 +6,7 @@ import MobileMenuItem from './MobileMenuItem';
 import { styled } from '@mui/system';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { useRouter } from 'next/router';
+import { Link as ScrollLink } from 'react-scroll';
 
 const StyledDrawer = styled(Drawer)(({ theme }) => ({
     '& .MuiDrawer-paper': {
@@ -23,8 +24,10 @@ const MobileDrawer = ({ open, handleDrawerToggle }) => {
     const handleMenuItemClick = (text) => {
         if (text === 'Ana Sayfa') {
             router.push('/');
+        } else if (text === 'Hakkımızda') {
+            // Mobilde Hakkımızda bölümüne kaydırma yapılacak
+            document.getElementById('about-section').scrollIntoView({ behavior: 'smooth' });
         }
-        // Diğer yönlendirmeler daha sonra yapılabilir
         handleDrawerToggle();
     };
 

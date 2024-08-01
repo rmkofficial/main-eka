@@ -3,6 +3,7 @@ import { Button } from '@mui/material';
 import { styled } from '@mui/system';
 import Logo from '../Logo';
 import Link from 'next/link';
+import { Link as ScrollLink } from 'react-scroll';
 
 const LinkContainer = styled('div')(({ theme }) => ({
     display: 'flex',
@@ -42,10 +43,11 @@ const NavLinks = () => {
             <Link href="/" passHref>
                 <StyledButton color="inherit">Ana Sayfa</StyledButton>
             </Link>
-
             <StyledButton color="inherit">Hizmetler</StyledButton>
             <Logo />
-            <StyledButton color="inherit">Hakkımızda</StyledButton>
+            <ScrollLink to="about-section" smooth={true} duration={500}>
+                <StyledButton color="inherit">Hakkımızda</StyledButton>
+            </ScrollLink>
             <StyledButton color="inherit">İletişim</StyledButton>
         </LinkContainer>
     );
