@@ -50,7 +50,6 @@ const StyledCardContent = styled(CardContent)(({ theme }) => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    cursor: 'pointer',
 }));
 
 const Title = styled(Typography)(({ theme }) => ({
