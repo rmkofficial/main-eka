@@ -5,6 +5,7 @@ import Logo from '../Logo';
 import MobileMenuItem from './MobileMenuItem';
 import { styled } from '@mui/system';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { useRouter } from 'next/router';
 
 const StyledDrawer = styled(Drawer)(({ theme }) => ({
     '& .MuiDrawer-paper': {
@@ -17,6 +18,16 @@ const StyledDrawer = styled(Drawer)(({ theme }) => ({
 }));
 
 const MobileDrawer = ({ open, handleDrawerToggle }) => {
+    const router = useRouter();
+
+    const handleMenuItemClick = (text) => {
+        if (text === 'Ana Sayfa') {
+            router.push('/');
+        }
+        // Diğer yönlendirmeler daha sonra yapılabilir
+        handleDrawerToggle();
+    };
+
     const menuItems = [
         'Ana Sayfa',
         'Hizmetler',
@@ -48,7 +59,7 @@ const MobileDrawer = ({ open, handleDrawerToggle }) => {
                             timeout={300}
                             classNames="menu-item"
                         >
-                            <MobileMenuItem text={item} onClick={handleDrawerToggle} delay={index * 100} />
+                            <MobileMenuItem text={item} onClick={() => handleMenuItemClick(item)} delay={index * 100} />
                         </CSSTransition>
                     ))}
                 </TransitionGroup>

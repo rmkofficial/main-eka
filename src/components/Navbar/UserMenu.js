@@ -19,8 +19,8 @@ const StyledMenuItem = styled(MenuItem)(({ theme }) => ({
 
 const TransparentMenu = styled(Menu)(({ theme }) => ({
     '& .MuiPaper-root': {
-        backgroundColor: 'rgba(0, 0, 0, 0.2)', // Transparan arka plan
-        backdropFilter: 'blur(10px)', // Arka planı bulanıklaştırma
+        backgroundColor: 'rgba(0, 0, 0, 0.2)', 
+        backdropFilter: 'blur(10px)', 
     },
 }));
 

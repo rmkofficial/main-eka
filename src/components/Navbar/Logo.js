@@ -8,7 +8,7 @@ const Logo = () => {
     return (
         <Box sx={{ flexGrow: 0, display: 'flex', justifyContent: 'center', margin: "0 2rem" }}>
             <Link href="/" passHref>
-                <Box component="a" sx={{ display: 'flex' }}>
+                <Box sx={{ display: 'flex' }}>
                     <Image src={logo} alt="Logo" width={80} height={80} priority />
                 </Box>
             </Link>
