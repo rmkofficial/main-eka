@@ -150,7 +150,7 @@ const MobilePopularCourses = () => {
   return (
     <CoursesSectionWrapper>
       <CoursesContent>
-        <SectionTitle variant="h2" component="h2">
+        <SectionTitle variant="h4" component="h1" gutterBottom sx={{ fontWeight: 'bold', fontSize: '2.5rem', color: '#fff' }}>
           Popüler Eğitimler
         </SectionTitle>
         <StyledSlider {...settings}>

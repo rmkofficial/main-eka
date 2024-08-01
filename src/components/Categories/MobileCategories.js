@@ -153,7 +153,7 @@ const MobileCategories = () => {
     return (
         <CategoriesSectionWrapper>
             <CategoriesContent>
-                <CategoryTitle variant="h2" component="h2">
+                <CategoryTitle variant="h4" component="h1" gutterBottom sx={{ fontWeight: 'bold', fontSize: '2.5rem', color: '#fff' }}>
                     Kategoriler
                 </CategoryTitle>
                 <StyledSlider {...settings}>

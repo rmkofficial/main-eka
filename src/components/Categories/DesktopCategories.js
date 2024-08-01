@@ -61,7 +61,7 @@ const StyledSlider = styled(Slider)(({ theme }) => ({
 
 const StyledCard = styled(Card)(({ theme }) => ({
     transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-    cursor: 'pointer', 
+    cursor: 'pointer',
     '&:hover': {
         transform: 'scale(1.05)',
         boxShadow: '0 4px 20px rgba(0, 0, 0, 0.2)',
@@ -77,7 +77,7 @@ const StyledCardMedia = styled(CardMedia)(({ theme }) => ({
 }));
 
 const StyledCardContent = styled(CardContent)(({ theme }) => ({
-    backgroundColor: 'rgba(0, 0, 0, 0.5)', 
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
     padding: theme.spacing(2),
     color: '#fff',
 }));
@@ -153,7 +153,7 @@ const DesktopCategories = () => {
     return (
         <CategoriesSectionWrapper>
             <CategoriesContent>
-                <CategoryTitle variant="h2" component="h2">
+                <CategoryTitle variant="h4" component="h1" gutterBottom sx={{ fontWeight: 'bold', fontSize: '2.5rem', color: '#fff' }}>
                     Kategoriler
                 </CategoryTitle>
                 <StyledSlider {...settings}>
