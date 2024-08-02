@@ -48,7 +48,9 @@ const NavLinks = () => {
             <ScrollLink to="about-section" smooth={true} duration={500}>
                 <StyledButton color="inherit">Hakkımızda</StyledButton>
             </ScrollLink>
-            <StyledButton color="inherit">İletişim</StyledButton>
+            <ScrollLink to="contact-section" smooth={true} duration={500}>
+                <StyledButton color="inherit">İletişim</StyledButton>
+            </ScrollLink>
         </LinkContainer>
     );
 };

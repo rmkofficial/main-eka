@@ -25,6 +25,8 @@ const MobileDrawer = ({ open, handleDrawerToggle }) => {
             router.push('/');
         } else if (text === 'Hakkımızda') {
             document.getElementById('about-header').scrollIntoView({ behavior: 'smooth' });
+        } else if (text === 'İletişim') {
+            document.getElementById('contact-header').scrollIntoView({ behavior: 'smooth' });
         }
         handleDrawerToggle();
     };
