@@ -96,8 +96,8 @@ const DesktopAbout = () => {
     ];
 
     return (
-        <AboutSectionWrapper>
-            <Container sx={{ textAlign: 'center', marginBottom: 4, marginTop: 8 }} id="about-section">
+        <AboutSectionWrapper id="about-section">
+            <Container sx={{ textAlign: 'center', marginBottom: 4, marginTop: 8 }} >
                 <Typography variant="h4" component="h1" gutterBottom sx={{ fontWeight: 'bold', fontSize: '2.5rem', color: '#fff' }}>
                     Eğitim Kariyer Akademisi
                 </Typography>

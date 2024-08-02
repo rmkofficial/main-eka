@@ -87,7 +87,7 @@ const MobileAbout = () => {
     ];
 
     return (
-        <AboutSectionWrapper>
+        <AboutSectionWrapper id="about-section">
             <Container sx={{ textAlign: 'center', marginBottom: 4 }} id="about-header">
                 <Typography variant="h4" component="h1" gutterBottom sx={{ fontWeight: 'bold', fontSize: '2rem', color: '#fff' }}>
                     Eğitim Kariyer Akademisi

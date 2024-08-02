@@ -108,8 +108,8 @@ const StyledButton = styled(Button)(({ theme }) => ({
 
 const DesktopContact = () => {
     return (
-        <ContactWrapper >
-            <ContactContainer maxWidth="lg" id="contact-section">
+        <ContactWrapper id="contact-section">
+            <ContactContainer maxWidth="lg" >
                 <FormWrapper>
                     <Typography variant="h4" gutterBottom>
                         İletişim

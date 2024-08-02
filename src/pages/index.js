@@ -6,6 +6,7 @@ import Categories from '../components/Categories/Categories';
 import PopulerCourses from '../components/PopularCourses/PopularCourses';
 import About from '../components/About/About';
 import Contact from '../components/Contact/Contact';
+import Footer from '../components/Footer/Footer';
 
 const Home = () => {
     return (
@@ -16,6 +17,7 @@ const Home = () => {
             <PopulerCourses />
             <About />
             <Contact />
+            <Footer />
         </div>
     );
 };
